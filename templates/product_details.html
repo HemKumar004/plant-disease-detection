@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+Product Details
+{% endblock pagetitle %}
+{% block body %}
+<div class="container">
+    <div class="row mb-5 text-center">
+        <div class="col-lg-10 mx-auto">
+            <!-- Display the supplement name as the title -->
+            <h1 class="display-6" style="padding-top: 2%; font-weight: 400; color: rgb(4, 54, 4);">
+                <b>{{ product['supplement name'] }}</b>
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Left column: product image -->
+        <div class="col-lg-6">
+            <img src="{{ product['supplement image'] }}" alt="{{ product['supplement name'] }}" class="img-fluid shadow rounded-lg" style="max-width: 100%; height: auto;">
+        </div>
+        <!-- Right column: product details -->
+        <div class="col-lg-6">
+            <p><b>Disease:</b> {{ product['disease_name'] }}</p>
+            <p><b>Description:</b> {{ product['description'] }}</p>
+            <p><b>Price:</b> ${{ product['price'] }}</p>
+            <p><b>Availability:</b> {{ product['availability'] }}</p>
+            <br>
+            <!-- Button to proceed to payment -->
+            <a href="/payment?product_id={{ product['index'] }}" class="btn btn-light" style="background-image: linear-gradient(300deg, #ff5c4d, #ff4d4d); color: white; font-weight: 600;">
+                Buy Product
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock body %}
